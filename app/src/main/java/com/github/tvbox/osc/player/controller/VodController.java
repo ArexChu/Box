@@ -1637,7 +1637,7 @@ public class VodController extends BaseController {
 
     public void updateDanmuBtn(){
         if(hasDanmu){
-            mDanmuSetting.setVisibility(VISIBLE);
+            mDanmuSetting.setVisibility(GONE);
         }else{
             mDanmuSetting.setVisibility(GONE);
         }
