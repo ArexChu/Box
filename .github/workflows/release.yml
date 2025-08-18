@@ -20,6 +20,10 @@ jobs:
           java-version: 17
           cache: gradle
 
+      - name: Create local.properties
+        run: |
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+
       - name: Grant gradlew permissions
         run: chmod +x ./gradlew
 
