@@ -1,10 +1,7 @@
 package com.github.tvbox.osc.util;
 
-import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
-
-import com.github.catvod.utils.Path;
 import com.github.tvbox.osc.base.App;
 import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.util.StringUtils;
@@ -26,7 +23,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -363,26 +359,6 @@ public class FileUtils {
         int lastSlashIndex = Math.max(path.lastIndexOf("/"), path.lastIndexOf("\\"));
         // 如果路径中有点号，并且点号在最后一个斜杠之后，认为有后缀
         return lastDotIndex > lastSlashIndex && lastDotIndex < path.length() - 1;
-    }
-
-    public static String read(String path) {
-        try {
-            return read(new FileInputStream(getLocal(path)));
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
-    public static String read(InputStream is) {
-        try {
-            byte[] data = new byte[is.available()];
-            is.read(data);
-            is.close();
-            return new String(data, StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "";
-        }
     }
     public static File getLocal(String path) {
         File file1 = new File(path.replace("file:/", ""));
