@@ -30,9 +30,12 @@ jobs:
       - name: Build arm64 generic APK
         run: ./gradlew clean assembleArm64GenericNormalRelease
 
+      - name: Show APK outputs
+        run: ls -R app/build/outputs/apk
+
       - name: Upload Release APK
         uses: softprops/action-gh-release@v2
         with:
-          files: app/build/outputs/apk/arm64/genericNormal/release/*.apk
+          files: app/build/outputs/apk/release/*.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
