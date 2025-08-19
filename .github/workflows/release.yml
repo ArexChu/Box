@@ -25,7 +25,7 @@ jobs:
           echo "sdk.dir=$ANDROID_HOME" > local.properties
 
       - name: Decode Keystore
-        run: echo "${SIGNING_KEYSTORE}" | base64 --decode > release.jks
+        run: echo "${SIGNING_KEYSTORE}" | base64 --decode > app/release.jks
         env:
           SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
 
